@@ -8,16 +8,6 @@
 #
 # install apache
 
-package_name = "apache2"
-service_name = "apache2"
-document_root = "/var/www"
-
-if node["platform"] == "centos" or node["platform"] == "redhat"
-  package_name = "httpd"
-  service_name = "httpd"
-  document_root = "/var/www/html"
-end
-
 package package_name do
   action :install
 end
