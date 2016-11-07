@@ -8,13 +8,13 @@
 #
 # install apache
 
-package package_name do
+package node["package_name"] do
   action :install
 end
 
 # start the apache
 # make sure it starts on reboot
-service service_name do
+service node["service_name"] do
   action [:start, :enable]
 end
 
@@ -24,7 +24,7 @@ end
 #  mode "0644"
 #end
 
-template "#{document_root}/index.html" do
+template "#{node["document_root"]}/index.html" do
   source "index.html.erb"
   mode "0644"
 end
